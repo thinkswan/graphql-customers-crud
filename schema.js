@@ -37,6 +37,12 @@ const RootQuery = new GraphQLObjectType({
           if (customers[i].id === args.id) return customers[i];
         }
       }
+    },
+    customers: {
+      type: new GraphQLList(CustomerType),
+      resolve (parentValue, args) {
+        return customers
+      }
     }
   }
 })
